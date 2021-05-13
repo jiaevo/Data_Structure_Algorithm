@@ -1,4 +1,3 @@
-//no order binary tree
 class Node:
     def __init__(self,data):
         self.data = data
@@ -38,7 +37,7 @@ def prettytree(tree,level = 0):
         prettytree(tree.leftnode,level+1)
         print(' ' * 4 * level + '->', tree.key.data)
         prettytree(tree.rightnode,level+1)
-
+//DFS
 //get dpeth of tree
 def max_depth(tree):
     if tree:
@@ -50,7 +49,7 @@ def max_depth(tree):
             return right_level + 1
     else:
         return 0
-
+//BFS
 //get width of each level
 def width(tree,level):
     if tree is None:
@@ -60,6 +59,21 @@ def width(tree,level):
     elif level > 1:
         return width(tree.leftnode,level - 1) + width(tree.rightnode,level -1)
 
+//trasverse tree in 3 ways
+def inorder(tree):
+    inorder(tree.leftnode)
+    print(tree.key.data)
+    inorder(tree.rightnode)
+
+def preorder(tree):
+    print(tree.key.data)
+    preorder(tree.leftnode)
+    preorder(tree.rightnode)
+
+def postorder(tree):
+    postorder(tree.leftnode)
+    postorder(tree.rightnode)
+    print(tree.key.data)
 
 
 //example - auto sort by using insert method 
