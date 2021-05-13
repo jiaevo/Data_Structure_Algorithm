@@ -41,7 +41,11 @@ def convert_list_ll(list1):
 l3 = link_list()
 l3.push(99)
 l3.push(202)
+l3.push(204)
 
-
-
+# linked list is mutable so that even assign any head, next to the temp variable, 
+# if temp variable.next or temp variable data change, original linked list will be changed !!
+current = l3.head
+current.next = node(99)
+l3.head.data
 
