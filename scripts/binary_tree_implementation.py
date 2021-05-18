@@ -27,7 +27,7 @@ class BinaryTree:
 def PrintTree(self):
     if self.leftnode:
         self.leftnode.PrintTree()
-    print( self.key.data),
+    print(self.key.data),
     if self.rightnode:
         self.rightnode.PrintTree()
 
@@ -113,7 +113,6 @@ tree2.leftnode.rightnode = BinaryTree(Node(31))
 tree2.rightnode = BinaryTree(Node(99))
 
 
-
 def isSymmetric(tree):
         if tree is None: return True
         def dfs_left(tree, res):
@@ -124,14 +123,12 @@ def isSymmetric(tree):
             dfs_left(tree.leftnode, res)
             dfs_left(tree.rightnode, res)
             return res
-        # def dfs_right(root, res):
-        #     if root is None: 
-        #         res.append(None)
-        #         return
-        #     res.append(root.val)
-        #     dfs_right(root.right, res)
-        #     dfs_right(root.left, res)
-        #     return res
-        return dfs_left(tree.leftnode, [])
-
-isSymmetric(tree1)
+        def dfs_right(tree, res):
+            if tree is None: 
+                res.append(None)
+                return
+            res.append(tree.key.data)
+            dfs_right(tree.rightnode, res)
+            dfs_right(tree.leftnode, res)
+            return res
+        return dfs_left(tree.leftnode, []) == dfs_right(tree.rightnode,[])
