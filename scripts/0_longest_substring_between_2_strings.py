@@ -1,8 +1,10 @@
 def longest(X,Y):
     dp = [[0 for k in range(len(X))] for l in range(len(Y))]
     result = 0
-    for i in range(len(X)):
-        for j in range(len(Y)):
+    for i in range(len(Y)):
+        print('i:{}'.format(i))
+        for j in range(len(X)):
+            print('j:{}'.format(j))
             if(i == 0 or j == 0):
                 dp[i][j] = 0
             elif(X[i] == Y[j]):
